@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Music Store</title>
+        <link rel="stylesheet" href="css/styleform.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <header>
+            <a href="#" class="logo"><img src="images/music.png" alt="" title="">Music Store</a>
+            <ul class="nav">
+                <li><a href="form.html">Home</a></li>
+                <li><a href="https://www.musicstores.in/brands">Bands</a></li>
+                <li><a href="media.html">In Media</a></li>
+                <li><a href="https://www.musicstores.in/21-acoustic-guitars">Categories</a></li>
+            </ul>
+            <div class="search">
+                <input type="text" placeholder="Search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </div>
+        </header>
+
+        <div class="vid">
+                <h1>Guitar Practice Routine for Beginners</h1><br>
+                <p>Don't know what to focus on or how to move forward? <br> overwhelmed with too much to practice?<br> You need to revamp your practice routine!</p>
+            <video width="800" controls>
+                <source src="images/video.mp4" type="video/mp4" autoplay muted>
+              </video>
+
+              <p>Video Credit <a href="https://www.youtube.com/watch?v=6llvjjDjpb0&t=14s" target="_blank">Click Here</a>.</p>
+        </div>
+
+        <div class="article">
+            <h2>Let’s take a look at 3 simple guitar songs that every beginner should learn:</h2>
+            <ol>
+                <li>“what’s up” by four non-blondes</li>
+                <audio controls><source src="images/audio1.mp3" type="audio/mpeg"></audio>
+                <p>This song has a few more chords than three, utilizing the chords E, Am, G, D, and B, however, these are all chords that can be easily picked up on the guitar. This is also one of those songs that everyone knows, so it’ll be a big hit at parties and get-togethers.</p>
+                <li>“love me do” by the beatles</li>
+                <audio controls><source src="images/audio2.mp3" type="audio/mpeg"></audio>
+                <p>When you play this great song, it only takes TWO initial chords for the chorus: G major and C major, until you get to the bridge part of the song that goes, “Someone to love…” where you add in a D major chord. A very simple song with just the two chords to start, making it very easy to play. Note that every song is going to have its own strumming pattern, and they will differ based on the song you choose. It helps if you are familiar with the song and its rhythm because this will help with your strumming.</p>
+                <li>“i wanna be there” by blessed union of souls</li>
+                <audio controls><source src="images/audio3.mp3" type="audio/mpeg"></audio>
+                <p>This song has just three simple and major chords: G, C, and D. These are probably the easiest chords to learn first on the guitar, and once you have them, you can already learn how to strum a song.The chord progression goes like this: G | C | D | G, and once you can switch to each without any problems, you’ve got yourself this song. It’s a very simple and easy song to begin with, and who doesn’t like a love song?</p>
+              </ol> 
+        </div>
+
+        <div class="location">
+        <h2>Store location</h2> 
+        <button onclick="getlocation();"> Show Position</button> 
+        <div id="demo" style="width: 100%; height: 400px;"></div> 
+       
+        <script src="https://maps.google.com/maps/api/js?sensor=false"> </script> 
+        
+        <script type="text/javascript"> 
+        function getlocation(){ 
+            if(navigator.geolocation){ 
+                navigator.geolocation.getCurrentPosition(showPos, showErr); 
+            }
+            else{
+                alert("Sorry! your Browser does not support Geolocation API")
+            }
+        } 
+        //Showing Current Poistion on Google Map
+        function showPos(position){ 
+            latt = position.coords.latitude; 
+            long = position.coords.longitude; 
+            var lattlong = new google.maps.LatLng(latt, long); 
+            var myOptions = { 
+                center: lattlong, 
+                zoom: 15, 
+                mapTypeControl: true, 
+                navigationControlOptions: {style:google.maps.NavigationControlStyle.SMALL} 
+            } 
+            var maps = new google.maps.Map(document.getElementById("demo"), myOptions); 
+            var markers = 
+            new google.maps.Marker({position:lattlong, map:maps, title:"You are here!"}); 
+        } 
+
+        //Handling Error and Rejection
+             function showErr(error) {
+              switch(error.code){
+              case error.PERMISSION_DENIED:
+             alert("User denied the request for Geolocation API.");
+              break;
+             case error.POSITION_UNAVAILABLE:
+             alert("USer location information is unavailable.");
+            break;
+            case error.TIMEOUT:
+            alert("The request to get user location timed out.");
+            break;
+           case error.UNKNOWN_ERROR:
+            alert("An unknown error occurred.");
+            break;
+           }
+        }        </script> 
+        </div>
+    </body>
+</html>
