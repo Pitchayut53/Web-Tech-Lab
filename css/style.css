@@ -15,6 +15,10 @@ body {
       margin-left: 100px;
   }
 
+  .logoholder img{
+    height: 50px;
+  }
+
   .nav-bar ul{
     list-style-type: none;
     margin-left: 60%;
